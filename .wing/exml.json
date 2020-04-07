@@ -1,0 +1,16 @@
+{
+  "global": {
+    "globalAutoLayerMarkEnable": true
+  },
+  "1713a2b5800": {
+    "backgroundType": "null",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "/Users/jax/Documents/EgretProjects/aircraft-wars/resource/assets/bg/img_bg_level_1.jpg",
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "backgroundAlpha": 100
+  }
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="MeneSceneSkin" width="512" height="768" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:tween="egret.tween.*" >
+	<w:Declarations>
+		<tween:TweenGroup id="animation">
+			<tween:TweenItem target="{label}">
+				<tween:Set>
+					<tween:props>
+						<e:Object y="{0}" alpha="{0}"/>
+					</tween:props>
+				</tween:Set>
+				<tween:To duration="500">
+					<tween:props>
+						<e:Object alpha="{1}" y="{107}"/>
+					</tween:props>
+				</tween:To>
+			</tween:TweenItem>
+			<tween:TweenItem target="{button}">
+				<tween:Set>
+					<tween:props>
+						<e:Object y="{768}" alpha="{0}"/>
+					</tween:props>
+				</tween:Set>
+				<tween:To duration="750" ease="sineOut">
+					<tween:props>
+						<e:Object y="{450}" alpha="{1}"/>
+					</tween:props>
+				</tween:To>
+			</tween:TweenItem>
+		</tween:TweenGroup>
+	</w:Declarations>
+	<w:Config id="1713a2b5800" ></w:Config>
+	<e:Image source="img_bg_level_1_jpg"/>
+	<e:Label id="label" text="欢迎进入飞机大战游戏" y="107" verticalAlign="middle" horizontalCenter="0"/>
+	<e:Button id="button" label="开始游戏" height="44" anchorOffsetX="0" width="160" enabled="true" anchorOffsetY="0" x="176" y="450"/>
+</e:Skin>

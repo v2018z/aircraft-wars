@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="GameSceneSkin" width="512" height="768" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="171444911e4" ></w:Config>
+	<e:Image id="bg1" x="0" y="0" source="img_bg_level_2_jpg"/>
+	<e:Image id="bg2" x="0" y="-768" source="img_bg_level_2_jpg"/>
+	<e:Group width="100%" height="42" x="0" y="10" anchorOffsetX="0" anchorOffsetY="0">
+		<e:BitmapLabel width="49" height="41" x="13" y="1" text="HP" font="font_fnt" anchorOffsetY="0"/>
+		<e:BitmapLabel id="hp" width="130" height="42" x="62" y="0" font="font_fnt" anchorOffsetY="0" text="10000"/>
+		<e:BitmapLabel width="102" height="42" x="288" y="1" text="SCORE" font="font_fnt"/>
+		<e:BitmapLabel id="score" width="22" height="42" x="437" y="1" text="0" font="font_fnt"/>
+	</e:Group>
+</e:Skin>
