@@ -27,6 +27,15 @@ class BasePlane extends BaseObject {
      * 是否销毁的状态
      */
     public isDie: boolean = false;
+    /**
+     * 子弹出现的位置
+     */
+    public bulletPositions: Array<Object> = [];
+    // 子弹飞行的速度
+    public bulletSpeed: number = 0.05;
+    // 子弹发射的频率
+    public shootInterval: number = 200;
+    public threshold: number = 0;
     
     public constructor(name: string) {
         super(name);
@@ -45,6 +54,18 @@ class BasePlane extends BaseObject {
         }
 
         return true;
+    }
+
+    /**
+     * 累计间隔时间，控制子弹发射的频率
+     */
+    public addShootTime(passOnEnterFrame: number): boolean {
+        this.threshold += passOnEnterFrame;
+        if (this.threshold > this.shootInterval) {
+            this.threshold = 0;
+            return true;
+        }
+        return false;
     }
 
     public reduceHP(target: BasePlane) {
@@ -82,4 +103,20 @@ class BasePlane extends BaseObject {
 
     }
     
+    public shoot(bulletContainer: BulletContainer, passOnEnterFrame: number) {}
+
+    /**
+     * 判断是否在屏幕外面
+     */
+    public validate() {
+        return !(this.x < -100 || this.x > Global.stage.stageWidth + 100 || this.y < -100 || this.y > Global.stage.stageHeight + 100);
+    }
+
+    public destory() {
+        if (this.parent) {
+            this.parent.removeChild(this);
+        }
+    }
+    
+    public move(time: number) {}
 }

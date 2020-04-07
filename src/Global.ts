@@ -1,5 +1,6 @@
 class Global {
 	public static stage: egret.Stage;
+	public static plane:HeroPlane
 
 	public static addScene(scene: eui.UIComponent) {
 		this.stage.addChild(scene);

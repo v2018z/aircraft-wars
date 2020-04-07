@@ -12,20 +12,43 @@ var BasePlane = (function (_super) {
     __extends(BasePlane, _super);
     function BasePlane(name) {
         var _this = _super.call(this, name) || this;
-        // 生命值
+        /**
+         * 生命值
+         */
         _this.hp = 10000;
-        // 攻击力
+        /**
+         * 攻击力
+         */
         _this.atk = 10;
-        // 飞行速度
+        /**
+         * 飞行速度
+         */
         _this.flySpeed = 300;
-        // 爆炸例子动画播放的时间
+        /**
+         * 爆炸例子动画播放的时间
+         */
         _this.explodeTime = 1000;
-        // 受攻击粒子动画播放的时间
+        /**
+         * 受攻击粒子动画播放的时间
+         */
         _this.hurtTime = 500;
-        // 是否爆炸的状态
+        /**
+         * 是否爆炸的状态
+         */
         _this.isExploade = false;
-        // 是否销毁的状态
+        /**
+         * 是否销毁的状态
+         */
         _this.isDie = false;
+        /**
+         * 子弹出现的位置
+         */
+        _this.bulletPositions = [];
+        // 子弹飞行的速度
+        _this.bulletSpeed = 0.05;
+        // 子弹发射的频率
+        _this.shootInterval = 200;
+        _this.threshold = 0;
         return _this;
     }
     BasePlane.prototype.hitCheck = function (target, length) {
@@ -41,9 +64,21 @@ var BasePlane = (function (_super) {
         }
         return true;
     };
+    /**
+     * 累计间隔时间，控制子弹发射的频率
+     */
+    BasePlane.prototype.addShootTime = function (passOnEnterFrame) {
+        this.threshold += passOnEnterFrame;
+        if (this.threshold > this.shootInterval) {
+            this.threshold = 0;
+            return true;
+        }
+        return false;
+    };
     BasePlane.prototype.reduceHP = function (target) {
         this.hp -= target.atk;
         if (this.hp <= 0) {
+            this.explode();
             // boom
         }
     };
@@ -65,6 +100,19 @@ var BasePlane = (function (_super) {
     // 血量耗尽，触发爆炸
     BasePlane.prototype.explode = function () {
     };
+    BasePlane.prototype.shoot = function (bulletContainer, passOnEnterFrame) { };
+    /**
+     * 判断是否在屏幕外面
+     */
+    BasePlane.prototype.validate = function () {
+        return !(this.x < -100 || this.x > Global.stage.stageWidth + 100 || this.y < -100 || this.y > Global.stage.stageHeight + 100);
+    };
+    BasePlane.prototype.destory = function () {
+        if (this.parent) {
+            this.parent.removeChild(this);
+        }
+    };
+    BasePlane.prototype.move = function (time) { };
     return BasePlane;
 }(BaseObject));
 __reflect(BasePlane.prototype, "BasePlane");

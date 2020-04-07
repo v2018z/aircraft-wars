@@ -14,7 +14,9 @@ var GameScene = (function (_super) {
         var _this = _super.call(this) || this;
         _this.timeInterval = 1 / 60 * 1000;
         _this.bgSpeed = 0.5;
-        // 记录上一帧的时间
+        /**
+         * 记录上一帧的时间
+         */
         _this.timeOnEnterFrame = 0;
         _this.lockTime = 100;
         return _this;
@@ -31,17 +33,31 @@ var GameScene = (function (_super) {
         this.heroPlane = new HeroPlane('hero_png');
         this.heroPlane.appear(Global.stage.stageWidth / 2, Global.stage.stageHeight * 2 / 3);
         this.addChild(this.heroPlane);
+        this.bulletContainer = new BulletContainer();
+        this.addChild(this.bulletContainer);
     };
     GameScene.prototype.setListeners = function () {
         this.addEventListener(egret.Event.ENTER_FRAME, this.onEnterFrame, this);
         this.touchEnabled = true;
         this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.touchBegin, this);
         this.addEventListener(egret.TouchEvent.TOUCH_END, this.touchEnd, this);
+        this.heroPlane.addEventListener('setHP', this.setHP, this);
+        this.heroPlane.addEventListener('setScore', this.setScore, this);
+    };
+    GameScene.prototype.setHP = function (event) {
+        this.hp.text = event.data;
+    };
+    GameScene.prototype.setScore = function (event) {
+        this.score.text = event.data;
     };
     GameScene.prototype.removeListener = function () {
         this.touchEnabled = false;
         this.removeEventListener(egret.Event.ENTER_FRAME, this.onEnterFrame, this);
         this.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.touchBegin, this);
+        this.removeEventListener(egret.TouchEvent.TOUCH_END, this.touchEnd, this);
+        this.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.touchMove, this);
+        this.heroPlane.removeEventListener('setHP', this.setHP, this);
+        this.heroPlane.removeEventListener('setScore', this.setScore, this);
     };
     GameScene.prototype.touchBegin = function (e) {
         this.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.touchMove, this);
@@ -77,6 +93,7 @@ var GameScene = (function (_super) {
             return;
         }
         this.scrollBg(pass);
+        this.shootBullet(pass);
     };
     GameScene.prototype.scrollBg = function (pass) {
         var delY = this.bgSpeed * pass;
@@ -86,6 +103,10 @@ var GameScene = (function (_super) {
             this.bg1.y = 0;
             this.bg2.y = -Global.stage.stageHeight;
         }
+    };
+    GameScene.prototype.shootBullet = function (pass) {
+        this.heroPlane.shoot(this.bulletContainer, pass);
+        this.bulletContainer.move(pass);
     };
     return GameScene;
 }(eui.Component));

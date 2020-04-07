@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,img_bg_level_1_jpg,img_bg_level_2_jpg,img_bg_level_3_jpg,img_bg_level_4_jpg,img_bg_level_5_jpg,alpha_png,beta_png,gamma_png,hero_png,jason_png,alpha4_png,beta4_png,gamma4_png,hero4_png,jason4_png,font_fnt,font_png",
+			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,img_bg_level_1_jpg,img_bg_level_2_jpg,img_bg_level_3_jpg,img_bg_level_4_jpg,img_bg_level_5_jpg,alpha_png,beta_png,gamma_png,hero_png,jason_png,alpha4_png,beta4_png,gamma4_png,hero4_png,jason4_png,font_fnt,font_png,bullet_ball_png,bullet_basic_png,bullet_comet_png,bullet_dart_png,bullet_missile_png,bullet_navigate_png,bullet_shell_png,bullet_ultra_png,bullet_png",
 			"name": "preload"
 		}
 	],
@@ -221,6 +221,51 @@
 			"name": "font_png",
 			"type": "image",
 			"url": "assets/fonts/font.png"
+		},
+		{
+			"name": "bullet_ball_png",
+			"type": "image",
+			"url": "assets/bullet/bullet_ball.png"
+		},
+		{
+			"name": "bullet_basic_png",
+			"type": "image",
+			"url": "assets/bullet/bullet_basic.png"
+		},
+		{
+			"name": "bullet_comet_png",
+			"type": "image",
+			"url": "assets/bullet/bullet_comet.png"
+		},
+		{
+			"name": "bullet_dart_png",
+			"type": "image",
+			"url": "assets/bullet/bullet_dart.png"
+		},
+		{
+			"name": "bullet_missile_png",
+			"type": "image",
+			"url": "assets/bullet/bullet_missile.png"
+		},
+		{
+			"name": "bullet_navigate_png",
+			"type": "image",
+			"url": "assets/bullet/bullet_navigate.png"
+		},
+		{
+			"name": "bullet_shell_png",
+			"type": "image",
+			"url": "assets/bullet/bullet_shell.png"
+		},
+		{
+			"name": "bullet_ultra_png",
+			"type": "image",
+			"url": "assets/bullet/bullet_ultra.png"
+		},
+		{
+			"name": "bullet_png",
+			"type": "image",
+			"url": "assets/bullet/bullet.png"
 		}
 	]
 }

@@ -17,6 +17,10 @@ class GameScene extends eui.Component implements  eui.UIComponent {
 
 	private hp: eui.BitmapLabel;
 	private score:eui.BitmapLabel;
+	private group: eui.Group;
+
+	// 子弹容器
+	public bulletContainer: BulletContainer;
 
 	public constructor() {
 		super();
@@ -39,6 +43,9 @@ class GameScene extends eui.Component implements  eui.UIComponent {
 		this.heroPlane = new HeroPlane('hero_png');
 		this.heroPlane.appear(Global.stage.stageWidth / 2, Global.stage.stageHeight * 2/3);
 		this.addChild(this.heroPlane);
+
+		this.bulletContainer = new BulletContainer();
+		this.addChild(this.bulletContainer);
 	}
 
 	private setListeners() {
@@ -108,6 +115,7 @@ class GameScene extends eui.Component implements  eui.UIComponent {
 			return;
 		}
 		this.scrollBg(pass);
+		this.shootBullet(pass);
 	}
 
 	private scrollBg(pass: number) {
@@ -118,6 +126,11 @@ class GameScene extends eui.Component implements  eui.UIComponent {
 			this.bg1.y = 0;
 			this.bg2.y = - Global.stage.stageHeight;
 		}
+	}
+
+	private shootBullet(pass: number) {
+		this.heroPlane.shoot(this.bulletContainer, pass);
+		this.bulletContainer.move(pass);
 	}
 	
 }
