@@ -15,7 +15,7 @@ var BulletContainer = (function (_super) {
         _this.bullets = [];
         return _this;
     }
-    BulletContainer.prototype.addbullet = function (bullet) {
+    BulletContainer.prototype.addBullet = function (bullet) {
         this.bullets.push(bullet);
         this.addChild(bullet);
     };

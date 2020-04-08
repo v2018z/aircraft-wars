@@ -21,6 +21,7 @@ class GameScene extends eui.Component implements  eui.UIComponent {
 
 	// 子弹容器
 	public bulletContainer: BulletContainer;
+	public enemyContainer: EnemyContainer;
 
 	public constructor() {
 		super();
@@ -46,6 +47,9 @@ class GameScene extends eui.Component implements  eui.UIComponent {
 
 		this.bulletContainer = new BulletContainer();
 		this.addChild(this.bulletContainer);
+
+		this.enemyContainer = new EnemyContainer();
+		this.addChild(this.enemyContainer);
 	}
 
 	private setListeners() {
@@ -116,6 +120,7 @@ class GameScene extends eui.Component implements  eui.UIComponent {
 		}
 		this.scrollBg(pass);
 		this.shootBullet(pass);
+		this.createEnemy(pass);
 	}
 
 	private scrollBg(pass: number) {
@@ -131,6 +136,11 @@ class GameScene extends eui.Component implements  eui.UIComponent {
 	private shootBullet(pass: number) {
 		this.heroPlane.shoot(this.bulletContainer, pass);
 		this.bulletContainer.move(pass);
+	}
+
+	private createEnemy(pass: number) {
+		this.enemyContainer.createEnemy(pass);
+		this.enemyContainer.moveAndShoot(this.bulletContainer, pass);
 	}
 	
 }

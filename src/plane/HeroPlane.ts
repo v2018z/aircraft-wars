@@ -40,7 +40,7 @@ class HeroPlane extends BasePlane {
         this.bulletPositions.forEach(position => {
             let bullet = new BaseBullet('bullet_png', this);
             bullet.show(position);
-            bulletContainer.addbullet(bullet);
+            bulletContainer.addBullet(bullet);
         })
     }
 }

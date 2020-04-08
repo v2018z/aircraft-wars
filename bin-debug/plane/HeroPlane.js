@@ -28,7 +28,6 @@ var HeroPlane = (function (_super) {
         var speedo = Math.sqrt(Math.pow(x - this.x, 2) + Math.pow(y - this.y, 2)) / this.flySpeed;
         egret.Tween.removeTweens(this);
         var tw = egret.Tween.get(this);
-        console.log(x, y);
         tw.to({ x: x, y: y }, speedo * 1000, egret.Ease.sineOut);
     };
     HeroPlane.prototype.dispatchHPEvent = function () {
@@ -49,7 +48,7 @@ var HeroPlane = (function (_super) {
         this.bulletPositions.forEach(function (position) {
             var bullet = new BaseBullet('bullet_png', _this);
             bullet.show(position);
-            bulletContainer.addbullet(bullet);
+            bulletContainer.addBullet(bullet);
         });
     };
     return HeroPlane;

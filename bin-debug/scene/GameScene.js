@@ -35,6 +35,8 @@ var GameScene = (function (_super) {
         this.addChild(this.heroPlane);
         this.bulletContainer = new BulletContainer();
         this.addChild(this.bulletContainer);
+        this.enemyContainer = new EnemyContainer();
+        this.addChild(this.enemyContainer);
     };
     GameScene.prototype.setListeners = function () {
         this.addEventListener(egret.Event.ENTER_FRAME, this.onEnterFrame, this);
@@ -94,6 +96,7 @@ var GameScene = (function (_super) {
         }
         this.scrollBg(pass);
         this.shootBullet(pass);
+        this.createEnemy(pass);
     };
     GameScene.prototype.scrollBg = function (pass) {
         var delY = this.bgSpeed * pass;
@@ -107,6 +110,10 @@ var GameScene = (function (_super) {
     GameScene.prototype.shootBullet = function (pass) {
         this.heroPlane.shoot(this.bulletContainer, pass);
         this.bulletContainer.move(pass);
+    };
+    GameScene.prototype.createEnemy = function (pass) {
+        this.enemyContainer.createEnemy(pass);
+        this.enemyContainer.moveAndShoot(this.bulletContainer, pass);
     };
     return GameScene;
 }(eui.Component));

@@ -49,8 +49,10 @@ var BasePlane = (function (_super) {
         // 子弹发射的频率
         _this.shootInterval = 200;
         _this.threshold = 0;
+        _this.init();
         return _this;
     }
+    BasePlane.prototype.init = function () { };
     BasePlane.prototype.hitCheck = function (target, length) {
         if (length === void 0) { length = 50; }
         if (target.isExploade)

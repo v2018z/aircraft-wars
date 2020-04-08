@@ -4,7 +4,7 @@ class BulletContainer extends egret.Sprite {
 		super();
 	}
 
-	public addbullet(bullet: BaseBullet) {
+	public addBullet(bullet: BaseBullet) {
 		this.bullets.push(bullet);
 		this.addChild(bullet);
 	}

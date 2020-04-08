@@ -39,7 +39,11 @@ class BasePlane extends BaseObject {
     
     public constructor(name: string) {
         super(name);
+
+		this.init()
     }
+
+    protected init() {}
 
     public hitCheck(target: BasePlane, length: number = 50): boolean {
         if (target.isExploade) return false;
