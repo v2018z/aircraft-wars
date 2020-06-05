@@ -101,7 +101,6 @@ class Main extends egret.DisplayObjectContainer {
      */
     private createGameScene() {
         Global.stage = this.stage
-        // Global.addScene(new MeneScene())
-        Global.addScene(new GameScene())
+        Global.addScene(new MeneScene())
     }
 }

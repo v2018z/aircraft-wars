@@ -1,8 +1,12 @@
 class BasePlane extends BaseObject {
     /**
+     * 分数
+     */
+    public score: number = 0;
+    /**
      * 生命值
      */
-    public hp: number = 10000;
+    public hp: number = 1000;
     /**
      * 攻击力
      */
@@ -93,7 +97,7 @@ class BasePlane extends BaseObject {
     }
 
     // 受到攻击，遭受伤害
-    protected hurt() {
+    protected hurt(target:BasePlane) {
 
     }
 

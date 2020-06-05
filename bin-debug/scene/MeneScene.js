@@ -20,7 +20,7 @@ var MeneScene = (function (_super) {
         _super.prototype.childrenCreated.call(this);
         this.animation.play();
         this.button.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
-            alert(234);
+            Global.replaceScene(new GameScene());
         }, this);
     };
     return MeneScene;

@@ -13,9 +13,13 @@ var BasePlane = (function (_super) {
     function BasePlane(name) {
         var _this = _super.call(this, name) || this;
         /**
+         * 分数
+         */
+        _this.score = 0;
+        /**
          * 生命值
          */
-        _this.hp = 10000;
+        _this.hp = 1000;
         /**
          * 攻击力
          */
@@ -94,7 +98,7 @@ var BasePlane = (function (_super) {
     BasePlane.prototype.fly = function (x, y) {
     };
     // 受到攻击，遭受伤害
-    BasePlane.prototype.hurt = function () {
+    BasePlane.prototype.hurt = function (target) {
     };
     // 受到撞击
     BasePlane.prototype.impact = function () {

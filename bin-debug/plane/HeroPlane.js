@@ -12,7 +12,6 @@ var HeroPlane = (function (_super) {
     __extends(HeroPlane, _super);
     function HeroPlane(name) {
         var _this = _super.call(this, name) || this;
-        _this.score = 0;
         _this.setScale(0.5);
         _this.flySpeed = 300;
         _this.hp = 1000;
@@ -30,12 +29,16 @@ var HeroPlane = (function (_super) {
         var tw = egret.Tween.get(this);
         tw.to({ x: x, y: y }, speedo * 1000, egret.Ease.sineOut);
     };
-    HeroPlane.prototype.dispatchHPEvent = function () {
+    HeroPlane.prototype.dispatchHPEvent = function (hp) {
+        if (hp === void 0) { hp = 0; }
+        this.hp -= hp;
         var event = new egret.Event('setHP');
         event.data = "" + this.hp;
         this.dispatchEvent(event);
     };
-    HeroPlane.prototype.dispatchScoreEvent = function () {
+    HeroPlane.prototype.dispatchScoreEvent = function (score) {
+        if (score === void 0) { score = 0; }
+        this.score += score;
         var event = new egret.Event('setScore');
         event.data = "" + this.score;
         this.dispatchEvent(event);
@@ -50,6 +53,14 @@ var HeroPlane = (function (_super) {
             bullet.show(position);
             bulletContainer.addBullet(bullet);
         });
+    };
+    HeroPlane.prototype.hurt = function (target) {
+        if (target instanceof BaseEnemy) {
+            this.dispatchHPEvent(target.expoldeAtk);
+        }
+        else {
+            this.dispatchHPEvent(target.atk);
+        }
     };
     return HeroPlane;
 }(BasePlane));

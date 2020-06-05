@@ -158,8 +158,7 @@ var Main = (function (_super) {
      */
     Main.prototype.createGameScene = function () {
         Global.stage = this.stage;
-        // Global.addScene(new MeneScene())
-        Global.addScene(new GameScene());
+        Global.addScene(new MeneScene());
     };
     return Main;
 }(egret.DisplayObjectContainer));

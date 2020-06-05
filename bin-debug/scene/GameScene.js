@@ -109,11 +109,11 @@ var GameScene = (function (_super) {
     };
     GameScene.prototype.shootBullet = function (pass) {
         this.heroPlane.shoot(this.bulletContainer, pass);
-        this.bulletContainer.move(pass);
+        this.bulletContainer.move(this.heroPlane, this.enemyContainer, pass);
     };
     GameScene.prototype.createEnemy = function (pass) {
         this.enemyContainer.createEnemy(pass);
-        this.enemyContainer.moveAndShoot(this.bulletContainer, pass);
+        this.enemyContainer.moveAndShoot(this.heroPlane, this.bulletContainer, pass);
     };
     return GameScene;
 }(eui.Component));

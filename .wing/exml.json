@@ -12,5 +12,14 @@
     "backgroundWidth": -1,
     "backgroundHeight": -1,
     "backgroundAlpha": 100
+  },
+  "171444911e4": {
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "useBgImage": true,
+    "useBgColor": true,
+    "backgroundAlpha": 100
   }
 }

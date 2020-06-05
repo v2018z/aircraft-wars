@@ -1,5 +1,4 @@
 class HeroPlane extends BasePlane {
-    private score: number = 0;
     public constructor(name: string) {
         super(name);
 
@@ -21,13 +20,15 @@ class HeroPlane extends BasePlane {
         tw.to( { x, y }, speedo * 1000, egret.Ease.sineOut);
     }
 
-    public dispatchHPEvent() {
+    public dispatchHPEvent(hp: number = 0) {
+        this.hp -= hp;
         let event = new egret.Event('setHP');
         event.data = `${this.hp}`;
         this.dispatchEvent(event);
     }
 
-    public dispatchScoreEvent() {
+    public dispatchScoreEvent(score: number = 0) {
+        this.score += score;
         let event = new egret.Event('setScore');
         event.data = `${this.score}`;
         this.dispatchEvent(event);
@@ -42,5 +43,13 @@ class HeroPlane extends BasePlane {
             bullet.show(position);
             bulletContainer.addBullet(bullet);
         })
+    }
+
+    hurt(target: BasePlane) {
+        if (target instanceof BaseEnemy) {
+            this.dispatchHPEvent(target.expoldeAtk);
+        } else {
+            this.dispatchHPEvent(target.atk);
+        }
     }
 }

@@ -17,7 +17,7 @@ class MeneScene extends eui.Component implements  eui.UIComponent {
 		super.childrenCreated();
 		this.animation.play();
 		this.button.addEventListener(egret.TouchEvent.TOUCH_TAP, () => {
-			alert(234);
+			Global.replaceScene(new GameScene());
 		}, this);
 	}
 	

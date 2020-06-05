@@ -135,12 +135,12 @@ class GameScene extends eui.Component implements  eui.UIComponent {
 
 	private shootBullet(pass: number) {
 		this.heroPlane.shoot(this.bulletContainer, pass);
-		this.bulletContainer.move(pass);
+		this.bulletContainer.move(this.heroPlane, this.enemyContainer, pass);
 	}
 
 	private createEnemy(pass: number) {
 		this.enemyContainer.createEnemy(pass);
-		this.enemyContainer.moveAndShoot(this.bulletContainer, pass);
+		this.enemyContainer.moveAndShoot(this.heroPlane, this.bulletContainer, pass);
 	}
 	
 }
